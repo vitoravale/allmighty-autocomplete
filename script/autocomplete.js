@@ -255,7 +255,7 @@ app.directive('autocomplete', ['$templateCache', function ($templateCache) {
                         index = scope.getIndex();
                         // scope.preSelectOff();
                         if (index !== -1) {
-                            scope.select(angular.element(angular.element(this).find('li')[index]).text());
+                            //scope.select(angular.element(angular.element(this).find('li')[index]).text());
                             if (keycode == key.enter) {
                                 e.preventDefault();
                             }
