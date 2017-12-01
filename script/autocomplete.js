@@ -50,11 +50,14 @@ app.directive('autocomplete', ['$templateCache', function ($templateCache) {
             onType: '=onType',
             onSelect: '=onSelect',
             autocompleteRequired: '=',
-            noAutoSort: '=noAutoSort'
+            noAutoSort: '=noAutoSort',
+            updateField = '@'
         },
         controller: ['$scope', function ($scope) {
             // the index of the suggestions that's currently selected
             $scope.selectedIndex = -1;
+
+            $scope.updateSearch = angular.Undefined($scope.updateField) || $scope.updateField.toString() === false.toString()
 
             $scope.initLock = true;
 
@@ -121,8 +124,10 @@ app.directive('autocomplete', ['$templateCache', function ($templateCache) {
             // selecting a suggestion with RIGHT ARROW or ENTER
             $scope.select = function (suggestion) {
                 if (suggestion) {
-                    $scope.searchParam = suggestion;
-                    $scope.searchFilter = suggestion;
+                    if(!$scope.updateSearch){
+                        $scope.searchParam = suggestion;
+                        $scope.searchFilter = suggestion;
+                    }
                     if ($scope.onSelect)
                         $scope.onSelect(suggestion);
                 }
