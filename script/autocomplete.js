@@ -51,7 +51,7 @@ app.directive('autocomplete', ['$templateCache', function ($templateCache) {
             onSelect: '=onSelect',
             autocompleteRequired: '=',
             noAutoSort: '=noAutoSort',
-            updateField = '@'
+            updateField: '@'
         },
         controller: ['$scope', function ($scope) {
             // the index of the suggestions that's currently selected
