@@ -57,7 +57,7 @@ app.directive('autocomplete', ['$templateCache', function ($templateCache) {
             // the index of the suggestions that's currently selected
             $scope.selectedIndex = -1;
 
-            $scope.updateSearch = angular.Undefined($scope.updateField) || $scope.updateField.toString() === false.toString()
+            $scope.updateSearch = angular.isUndefined($scope.updateField) || $scope.updateField.toString() === false.toString()
 
             $scope.initLock = true;
 
